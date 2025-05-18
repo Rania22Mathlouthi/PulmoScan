@@ -10,7 +10,7 @@ It consists of:
   - Malignancy classification
   - Cancer staging  
 
-PulmoScan uses public datasets such as `LIDC-IDRI`, `LUNA16`, and `NSCLC-Radiomics`, and is deployed through a user-friendly **Flask-based web interface** to assist radiologists with real-time diagnosis.
+PulmoScan uses public datasets such as `LIDC-IDRI`, `LUNA16`, and `NSCLC-Radiomics`, and is deployed through a user-friendly **Django-based web interface** to assist radiologists with real-time diagnosis.
 
 ---
 
@@ -68,7 +68,7 @@ Lung cancer is the leading cause of cancer-related deaths globally. Traditional 
 
 ## 🚀 4. Deployment
 
-The system is **fully deployed using Flask** and includes:
+The system is **fully deployed using Django** and includes:
 - 👤 **Patient Module**: Early cancer risk prediction from clinical data
 - 🧠 **Diagnostic Pipeline**: CT image analysis through 4 stages:
   - Cancer detection
