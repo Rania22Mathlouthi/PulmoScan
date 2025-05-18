@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pulmoscan Report</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #ccc;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #005bab;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #005bab;
+        }
+        .contact {
+            font-size: 12px;
+        }
+        .section-title {
+            background-color: #e8f0fe;
+            padding: 8px;
+            font-weight: bold;
+            border-left: 4px solid #005bab;
+            margin-top: 30px;
+        }
+        .metadata, .footer {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .metadata-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .metadata-table td {
+            padding: 6px;
+            border: 1px solid #ccc;
+        }
+        .findings {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 60px;
+        }
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+        }
+        .signature-block {
+            text-align: center;
+            width: 30%;
+        }
+        .signature-line {
+            border-top: 1px solid #000;
+            margin-top: 40px;
+        }
+        td {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        td:hover {
+            overflow: visible;
+            white-space: normal;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PULMOSCAN</h1>
+        <p>X-Ray | CT-Scan | MRI | USG</p>
+        <div class="contact">
+            Esprit, Ariana Soghra , Tunis<br>
+            📞 912345789 / 75222555 | ✉️ pulmoscan@gmail.om
+        </div>
+    </div>
+
+    <div class="section-title">Patient Information</div>
+    <table class="metadata-table">
+        <tr>
+            <td><strong>Patient ID:</strong> {{ patient_id }}</td>
+            <td style="max-width: 300px; word-wrap: break-word;"><strong>Uploaded Image:</strong> {{ image_name }}</td>
+        </tr>
+        <tr>
+            <td><strong>Date:</strong> {{ date }}</td>
+            <td><strong>Reported By:</strong> Dr. A. Radiologue</td>
+        </tr>
+    </table>
+
+    <div class="section-title">Investigation Summary</div>
+    <div class="findings">
+        <ul>
+            <li><strong>Nodule Presence Assessment</strong> {{ luna_result }}</li>
+            <li><strong> Nodule Type Evaluation</strong> {{ yolo_result }} (Confidence: {{ yolo_confidence }}%)</li>
+            <li><strong>Oncological Stage Prediction</strong> {{ vgg_result }}</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Impression</div>
+    <div class="findings">
+        {% if luna_result == 'Negative' %}
+            No pulmonary nodules detected. Routine monitoring recommended.
+        {% elif yolo_result == 'Nodule bénin' %}
+            Benign pulmonary nodule detected. Clinical follow-up advised.
+        {% else %}
+            Malignant characteristics detected. Suggested stage: <strong>{{ vgg_result }}</strong>.
+            Immediate oncological assessment is recommended.
+        {% endif %}
+    </div>
+
+    <div class="signatures">
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <p>Radiologic Technologist</p>
+        </div>
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <p>Dr. A. Radiologue</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        **** End of Report ****<br>
+        Generated automatically by the system
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+{% load static %}
+{% load static %}
+<html lang="zxx" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mediplus - Free Medical and Doctor Directory HTML Template</title>
+	<style>
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .dropdown li a {
+      display: block;
+      padding: 10px 15px;
+      white-space: nowrap;
+    }
+
+    .dropdown-parent:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown-parent {
+      position: relative;
+	
+    }
+	.dropdown-parent {
+    margin-right: 20px;}
+	.header {
+    background-color: #f8f9fa; /* Couleur de fond claire mais différente du blanc pur */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* Crée un espace sous le header */
+    position: relative;
+    z-index: 10;
+}
+	.header .logo img {
+    max-height: 50px;
+    
+}
+.main-menu .nav.menu li {
+    margin-right: 20px; /* Espace entre les éléments */
+}
+.main-menu .navigation .menu {
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+    gap: 30px; /* espace entre les liens */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+	.slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .single-slider {
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh; /* Plein écran */
+        display: flex;
+        align-items: center;
+    }
+
+    .text h1 {
+        font-size: 3rem;
+        color: #fff;
+    }
+
+    .text p {
+        color: #eee;
+    }
+	.footer {
+    background-color: #007BFF; /* Bleu Bootstrap ou remplace par la couleur que tu veux */
+    color: white;
+}
+
+.footer .single-footer h2,
+.footer .single-footer p,
+.footer .single-footer a,
+.footer .copyright-content p {
+    color: white !important;
+}
+
+.footer .social i {
+    color: white;
+}
+.main-menu .navigation .menu li a {
+    line-height: 60px; /* Ajuste selon la hauteur du header */
+}
+.get-quote {
+    display: flex;
+    align-items: center;
+    height: 60px; /* même hauteur que le menu */
+}
+.text h1 {
+    font-size: 2.2rem;  /* Taille équilibrée */
+    color: #95c3f3;     /* Bleu doux */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.text .button a {
+    margin-right: 10px; /* Réduit l'espacement entre les boutons */
+}
+.text .button a:last-child {
+    margin-right: 0; /* Empêche un espace inutile après le dernier bouton */
+}
+.signle-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.signle-icon i {
+    font-size: 50px;
+    
+    background-color: #e6f0ff;
+    border-radius: 50%;
+    padding: 20px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.get-quote .btn {
+    background-color: #007bff; /* Bleu vif */
+    color: white;              /* Texte en blanc */
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.get-quote .btn:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+    color: white;
+}
+
+
+
+  </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Site keywords here" />
+    <meta name="description" content="" />
+    <meta name='copyright' content='' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/icofont.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+</head>
+
+    <body>
+	
+		<!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator"> 
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+		
+		<!-- Get Pro Button -->
+		<!-- Header Area -->
+		<header class="header" >
+			<!-- Topbar -->
+			
+			
+			<!-- End Topbar -->
+			<!-- Header Inner -->
+			<div class="header-inner">
+				<div class="container">
+					<div class="inner">
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-12">
+								<!-- Start Logo -->
+								<div class="logo">
+									<a href="{% url 'Patient_list' %}"><img src="{% static 'img/pullmoscann.png' %}" alt="logo"></a>
+								</div>
+								<!-- End Logo -->
+								<!-- Mobile Nav -->
+								<div class="mobile-nav"></div>
+								<!-- End Mobile Nav -->
+							</div>
+							<div class="col-lg-7 col-md-9 col-12">
+								<!-- Main Menu -->
+								<div class="main-menu">
+									<nav class="navigation">
+										<ul class="nav menu">
+											<li><a href="index.html">Home </a></li>
+											<li><a href="Precoce.html">Precoce Detection </a></li>
+											<li><a href="radiologue.html">Radiologue </a></li>
+											<li><a href="contact.html">Contact Us</a></li>
+										</ul>
+									</nav>
+								</div>
+								<!--/ End Main Menu -->
+							</div>
+							<div class="col-lg-2 col-12">
+								<div class="get-quote">
+									<a href="{% url 'login' %}" class="btn">Login</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Header Inner -->
+		</header>
+		<!-- End Header Area -->
+		
+		<!-- Slider Area -->
+	{% load static %}
+
+<section class="slider">
+	<div class="hero-slider">
+		<!-- Start Single Slider -->
+		<div class="single-slider" style="background-image: url('{% static 'img/slider2.jpg' %}')">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="text">
+							<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+
+							<div class="button">
+								<a href="#" class="btn">Get Appointment</a>
+								<a href="#" class="btn primary">Learn More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Single Slider -->
+
+		<!-- Start Single Slider -->
+		<div class="single-slider" style="background-image: url('{% static 'img/slider.jpg' %}')">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="text">
+							<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+								<div class="button">
+								<a href="#" class="btn">Get Appointment</a>
+								<a href="#" class="btn primary">About Us</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Single Slider -->
+
+		<!-- Start Single Slider -->
+		<div class="single-slider" style="background-image: url('{% static 'img/slider3.jpg' %}')">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="text">
+							<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+								<div class="button">
+								<a href="#" class="btn">Get Appointment</a>
+								<a href="#" class="btn primary">Contact Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Single Slider -->
+	</div>
+</section>
+
+		<!--/ End Slider Area -->
+		
+
+
+		<!--/End Start schedule Area -->
+
+		<!-- Start Feautes -->
+		<section class="Feautes section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>We Are Always Ready to Help You & Your Family</h2>
+                    <img src="{% static 'img/section-img.png' %}" alt="Section Divider">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Emergency Help -->
+            <div class="col-lg-4 col-12">
+                <div class="single-features">
+                    <div class="signle-icon">
+                        <i class="icofont icofont-ambulance-cross"></i>
+                    </div>
+                    <h3>Emergency Help</h3>
+                    <p>Our emergency team is available 24/7 for critical cases and fast medical support. Call us any time at <strong>+216 75222555</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Enriched Pharmacy -->
+            <div class="col-lg-4 col-12">
+                <div class="single-features">
+                    <div class="signle-icon">
+                        <i class="icofont icofont-medical-sign-alt"></i>
+                    </div>
+                    <h3>Fully Stocked Pharmacy</h3>
+                    <p>We offer a wide range of prescription and over-the-counter medications with professional guidance from certified pharmacists.</p>
+                </div>
+            </div>
+
+            <!-- Medical Treatment -->
+            <div class="col-lg-4 col-12">
+                <div class="single-features last">
+                    <div class="signle-icon">
+                        <i class="icofont icofont-stethoscope"></i>
+                    </div>
+                    <h3>Medical Treatment</h3>
+                    <p>From regular check-ups to advanced procedures, our doctors provide comprehensive healthcare solutions tailored to your needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+		<!--/ End Feautes -->
+
+		<!-- Footer Area -->
+		<footer id="footer" class="footer footer-blue">
+    <!-- Footer Top -->
+    <div class="footer-top py-5 text-white" style="background-color: #007bff;">
+        <div class="container">
+            <div class="row">
+                <!-- About PulmoScan -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2>About PulmoScan</h2>
+                        <p>
+                            PulmoScan is a digital platform that uses AI to assist in the early detection of lung diseases
+                            through advanced medical imaging and clinical data integration.
+                        </p>
+                        <ul class="social d-flex align-items-center gap-3">
+							<li><a href="#"><i class="icofont-facebook"></i></a></li>
+							<li><a href="#"><i class="icofont-twitter"></i></a></li>
+							<li><a href="#"><i class="icofont-linkedin"></i></a></li>
+							<li><a href="#"><i class="icofont-instagram"></i></a></li>
+						</ul>
+
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer f-link">
+                        <h2>Quick Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-caret-right"></i> Home</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i> About Us</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i> Services</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i> Our Experts</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Open Hours -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2>Open Hours</h2>
+                        <p>Our support team is available to help you throughout the week.</p>
+                        <ul class="time-sidual">
+                            <li class="day">Monday - Friday <span>08:00 - 20:00</span></li>
+                            <li class="day">Saturday <span>09:00 - 18:30</span></li>
+                            <li class="day">Sunday <span>Closed</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2>Newsletter</h2>
+                        <p>Subscribe to receive the latest updates on lung health and PulmoScan features.</p>
+                        <form action="#" method="post" class="newsletter-inner">
+                            <input name="email" placeholder="Your Email Address" class="common-input" required type="email">
+                            <button class="button" type="submit"><i class="icofont-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>© 2025 <strong>PulmoScan</strong>. All rights reserved. | Designed with ❤️ for better lung health.</p>
+        </div>
+    </div>
+</footer>
+
+	
+<!-- jQuery Min JS -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<!-- jQuery Migrate JS -->
+		<script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
+		<!-- jQuery UI JS -->
+		<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+		<!-- Easing JS -->
+		<script src="{% static 'js/easing.js' %}"></script>
+		<!-- Color JS -->
+		<script src="{% static 'js/colors.js' %}"></script>
+		<!-- Popper JS -->
+		<script src="{% static 'js/popper.min.js' %}"></script>
+		<!-- Bootstrap Datepicker JS -->
+		<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+		<!-- jQuery Nav JS -->
+		<script src="{% static 'js/jquery.nav.js' %}"></script>
+		<!-- Slicknav JS -->
+		<script src="{% static 'js/slicknav.min.js' %}"></script>
+		<!-- ScrollUp JS -->
+		<script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+		<!-- Niceselect JS -->
+		<script src="{% static 'js/niceselect.js' %}"></script>
+		<!-- Tilt jQuery JS -->
+		<script src="{% static 'js/tilt.jquery.min.js' %}"></script>
+		<!-- Owl Carousel JS -->
+		<script src="{% static 'js/owl-carousel.js' %}"></script>
+		<!-- Counterup JS -->
+		<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+		<!-- Steller JS -->
+		<script src="{% static 'js/steller.js' %}"></script>
+		<!-- Wow JS -->
+		<script src="{% static 'js/wow.min.js' %}"></script>
+		<!-- Magnific Popup JS -->
+		<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+		<!-- Waypoints (CDN - reste en ligne) -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<!-- Main JS -->
+		<script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
